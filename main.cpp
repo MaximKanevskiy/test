@@ -2,13 +2,17 @@
 #include <fstream>
 #include <sstream>
 
-int main() 
+static std::string loadFile(std::string path)
 {
-	std::ifstream file("www/index.html");
+	std::ifstream file(path);
 	std::stringstream buffer;
 	buffer << file.rdbuf();
 	std::string page = buffer.str();
-	std::cout << "Hello, World!" << std::endl;
+	return page;
+}
+
+int main() 
+{
+	auto page = loadFile("www/index.html");
 	std::cout << page << std::endl;
-	return 0;
 }
