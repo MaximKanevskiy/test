@@ -43,7 +43,6 @@ void greeting_handler(const Request& req, Response& res)
 
 int main() 
 {
-	std::cout << "Server started" << std::endl;
 	Server server;
 	server.Get("/", handler);
 	server.Get("/script.js", js_handler);
